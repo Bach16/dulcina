@@ -7,7 +7,7 @@ interface Props {
 
 const Product:FC<Props> = ({product}) => {
   return (
-    <div id="product-container" className="text-[#EC174F] w-full p-3">
+    <div id="product-container" className="text-[#EC174F] w-full p-3 shadow-md rounded-2xl md:shadow-none">
       <div className="overflow-hidden">
         <div>
           <img src={product?.image} alt={product?.name} id="product-mask" className=" h-[19rme] w-[19rem]"/>
@@ -19,7 +19,7 @@ const Product:FC<Props> = ({product}) => {
             <p className="text-[1rem]">$ {product?.price}</p>
         </div>
         <a className="mt-[0.6rem] w-[101%] " target="_blank" rel="noopener noreferrer" href={product?.link}>
-        <button id="product-button" className="border-solid font-semibold border-[2px] border-[#EC174F] w-[100%] rounded-[1.5rem] py-[0.5rem]">Comprar</button>
+        <button id="product-button" className="border-solid font-semibold border-[2px] border-[#EC174F] w-full rounded-2xl py-[0.5rem]">Comprar</button>
         </a>
       </div>
     </div>

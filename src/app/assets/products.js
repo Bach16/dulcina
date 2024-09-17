@@ -35,9 +35,7 @@ export const data = [
         price:"20.00",
         image: productImg3.src,
         link:"https://wa.link/zktqmz"
-    }
-]
-export const data1 = [
+    },
     {
         id: "1",
         name: "Fresas y masmelos",

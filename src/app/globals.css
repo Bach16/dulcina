@@ -23,20 +23,6 @@
   transform: translateX(-0%);
 }
 
-#product-mask {
-  display: flex;
-  background:/* webpackIgnore: true */#FCD7DF;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  -webkit-mask-image:/* webpackIgnore: true */ url("assets/group52.svg");
-  mask-image:/* webpackIgnore: true */ url("assets/group52.svg");
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  mask-position: top center;
-  -webkit-mask-size: 200px 200px;
-  mask-size: 200px 200px;
-}
 /* transition: height 0.1s;
 transition: width 0.1s;
 transition: margin-bottom 0.1s;
