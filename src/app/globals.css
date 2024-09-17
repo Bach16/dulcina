@@ -2,32 +2,130 @@
 @tailwind components;
 @tailwind utilities;
 
+.main-bg {
+  display: flex;
+  background-image:/* webpackIgnore: true */ url("assets/images/_10025406025_c029149bf2_b1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.circle-mask {
+  margin-top: -7rem;
+  background: #FCE8EA;
+  -webkit-mask-image:/* webpackIgnore: true */ url("assets/group52.svg");
+  mask-image:/* webpackIgnore: true */ url("assets/group52.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: 50% 5px;
+  mask-position: 50% 5px;
+  -webkit-mask-size: 4028px 2340px;
+  mask-size: 4028px 2340px;
+  transform: translateX(-0%);
+}
+
+#product-mask {
+  display: flex;
+  background:/* webpackIgnore: true */#FCD7DF;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-mask-image:/* webpackIgnore: true */ url("assets/group52.svg");
+  mask-image:/* webpackIgnore: true */ url("assets/group52.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: top center;
+  -webkit-mask-size: 200px 200px;
+  mask-size: 200px 200px;
+}
+/* transition: height 0.1s;
+transition: width 0.1s;
+transition: margin-bottom 0.1s;
+ */
+/*   background-image: url("assets/group52.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: #FCD7DF;
+  background-size: 250px 250px; */
+#product-container:hover #product-mask{
+  background:#FCE8EA;
+  mask-image: none;
+  background-image: url("assets/shapeproduct.svg");
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+}
+#product-container:hover #product-button{
+  background: #EC174F;
+  color: white;
+}
+
+.arc-mask {
+  display: flex;
+  background-image:/* webpackIgnore: true */ url("assets/images/_10025406025_c029149bf2_b1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-mask-image:/* webpackIgnore: true */ url("assets/arco.svg");
+  mask-image:/* webpackIgnore: true */ url("assets/arco.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: bottom center;
+  -webkit-mask-size: 800px 700px;
+  mask-size: 800px 700px;
+  transform: translateX(-0%);
+}
+.footer-mask {
+  display: flex;
+  background-image:/* webpackIgnore: true */ url("assets/images/_10025406025_c029149bf2_b1.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  -webkit-mask-image:/* webpackIgnore: true */ url("assets/shapefooter.svg");
+  mask-image:/* webpackIgnore: true */ url("assets/shapefooter.svg");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  mask-position: center ;
+  -webkit-mask-size: 1800px 1000px;
+  mask-size: 4000px 2000px;
+  transform: translateX(0%);
+  -webkit-box-reflect:right;
+}
+
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  overflow-x: hidden;
+  background: #FCE8EA;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+.outline-text{
+  color: #EC174F;
+  -webkit-text-fill-color: transparent; /* Will override color (regardless of order) */
+  -webkit-text-stroke: 1px #EC174F;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@font-face {
+  font-family: helveticaRounded;
+  src: url("../../public/fonts/helvetica-rounded/HelveticaRoundedLTStd-Bd.woff") format('woff');
+} 
+.helvetica-rounded {
+  font-family: helveticaRounded;
+} 
+
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+/* Track */
+ ::-webkit-scrollbar-track {
+  background: #f2f2f2;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #EC174F;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #ff2660;
 }
