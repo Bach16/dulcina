@@ -13,55 +13,55 @@ export const data = [
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "2",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg1.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "3",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg2.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "4",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg3.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "1",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg4.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "2",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg5.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "3",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg6.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     },
     {
         id: "4",
         name: "Fresas y masmelos",
         price:"20.00",
         image: productImg7.src,
-        link:"https://wa.link/zktqmz"
+        link:"https://wa.link/xyz3gb"
     }
 ]

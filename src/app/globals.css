@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 .main-bg {
   display: flex;
   background-image:/* webpackIgnore: true */ url("assets/images/_10025406025_c029149bf2_b1.jpg");

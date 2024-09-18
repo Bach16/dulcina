@@ -7,7 +7,7 @@ interface Props {
 
 const Product:FC<Props> = ({product}) => {
   return (
-    <div id="product-container" className="text-[#EC174F] w-full p-3 shadow-md rounded-2xl md:shadow-none">
+    <div id="product-container" className="text-[#EC174F] w-full p-3 rounded-2xl md:shadow-none">
       <div className="overflow-hidden">
         <div>
           <img src={product?.image} alt={product?.name} id="product-mask" className=" h-[19rme] w-[19rem]"/>
