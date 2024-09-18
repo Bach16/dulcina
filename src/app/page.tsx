@@ -1,6 +1,6 @@
 import Product from "../components/Product";
 import { Lobster } from "next/font/google";
-import { data, data1 } from "./assets/products.js";
+import { data } from "./assets/products.js";
 
 const lobster = Lobster({
   subsets: ["latin"],
