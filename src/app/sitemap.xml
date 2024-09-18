@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
-   <url>
+<url>
+  <loc>https://dulcina.vercel.app/</loc>
+  <lastmod>2024-09-18T03:07:18+00:00</lastmod>
+</url>
 
-      <loc>https://dulcina.vercel.app</loc>
 
-      <lastmod>2024-09-17</lastmod>
-
-      <changefreq>yearly</changefreq>
-
-      <priority>1</priority>
-
-   </url>
-
-</urlset> 
+</urlset>
