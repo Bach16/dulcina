@@ -3,6 +3,8 @@
      <url>
        <loc>https://dulcina.vercel.app</loc>
        <lastmod>2024-09-17</lastmod>
+       <changefreq>yearly</changefreq>
+       <priority>1</priority>
      </url>
    </urlset>
    </xml>
