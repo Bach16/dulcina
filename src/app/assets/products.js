@@ -11,42 +11,42 @@ export const data = [
     {
         id: "1",
         name: "Cielo azul",
-        price:"30.00",
+        price:"28.00",
         image: productImg.src,
         link:"https://wa.link/xyz3gb"
     },
     {
         id: "2",
         name: "Taza de felicidad",
-        price:"15.00",
+        price:"18.00",
         image: productImg1.src,
         link:"https://wa.link/xyz3gb"
     },
     {
         id: "3",
         name: "Festín frutal",
-        price:"35.00",
+        price:"40.00",
         image: productImg2.src,
         link:"https://wa.link/xyz3gb"
     },
     {
         id: "4",
         name: "Arcoíris delicioso",
-        price:"25.00",
+        price:"30.00",
         image: productImg3.src,
         link:"https://wa.link/xyz3gb"
     },
     {
         id: "5",
         name: "Pasión en Bloom",
-        price:"18.00",
+        price:"28.00",
         image: productImg4.src,
         link:"https://wa.link/xyz3gb"
     },
     {
         id: "6",
         name: "Celebración de amor",
-        price:"18.00",
+        price:"20.00",
         image: productImg5.src,
         link:"https://wa.link/xyz3gb"
     },
@@ -60,7 +60,7 @@ export const data = [
     {
         id: "8",
         name: "Cofre de delicias",
-        price:"30.00",
+        price:"35.00",
         image: productImg7.src,
         link:"https://wa.link/xyz3gb"
     }
