@@ -13,7 +13,7 @@ const Product:FC<Props> = ({product}) => {
           <img src={product?.image} alt={product?.name} id="product-mask" className=" h-[19rme] w-[19rem]"/>
         </div>
       </div>
-      <div className="flex flex-col items-center">
+      <div className="flex flex-col ">
         <div>
             <h3 className="text-[1.3rem] font-bold leading-tight mt-3">{product?.name}</h3>
             <p className="text-[1rem]">$ {product?.price}</p>

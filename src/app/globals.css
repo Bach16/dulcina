@@ -36,6 +36,15 @@ transition: margin-bottom 0.1s;
   background-color: #FCD7DF;
   background-size: 250px 250px; */
 #product-container:hover #product-mask{
+  background:#fce8ea00;
+  mask-image: none;
+}
+#product-container:hover #product-button{
+  background: #FCE8EA;
+  color: #EC174F;
+}
+@media screen and (min-width: 780px) {
+  #product-container:hover #product-mask{
   background:#FCE8EA;
   mask-image: none;
   background-image: url("assets/shapeproduct.svg");
@@ -46,6 +55,7 @@ transition: margin-bottom 0.1s;
 #product-container:hover #product-button{
   background: #EC174F;
   color: white;
+}
 }
 
 .arc-mask {

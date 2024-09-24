@@ -56,7 +56,7 @@ export default function Home() {
               ESCOGE EL MEJOR REGALO
             </h1>
           </div>
-          <div id="products" className="w-full grid grid-cols-2 gap-4 gap-y-10 sm:gap-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 max-w-screen-xl">
+          <div id="products" className="w-[85%] grid grid-cols-2 gap-4 gap-y-10 sm:gap-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
             {data.map((e: any) => {
               return <Product product={e} key={e.id} />;
             })}
