@@ -53,8 +53,9 @@ transition: margin-bottom 0.1s;
   background-size: 200px 200px;
 }
 #product-container:hover #product-button{
-  background: #EC174F;
-  color: white;
+  background: rgba(255, 255, 255, 0) ;
+  color: #EC174F;
+  border: 1px solid #EC174F;
 }
 }
 

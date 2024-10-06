@@ -28,17 +28,17 @@ export default function Home() {
                     El detalle perfecto para alegrar cualquier ocasión especial
                   </h2>
                   <h1 className="text-[4rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[7rem]">
-                    REGALOS IDEALES
+                  Regalos a domicilio quito
                   </h1>
                 </div>
                 <div className="flex justify-between flex-col gap-5 w-5/6 mt-16 md:flex-row max-w-[40rem]">
-                  <a href="https://wa.link/xyz3gb" className="px-[2rem] w-full text-lg lg:text-2xl md:text-2xl font-bold py-[0.8rem] lg:px-0">
-                    <button className="px-[2rem] w-full text-lg lg:text-2xl md:text-2xl font-bold py-[0.8rem] lg:px-0 rounded-lg bg-[#EC174F] text-[#ffffff] border-[2px] border-[#EC174F] border-solid">
+                  <a href="https://wa.link/xyz3gb" className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0">
+                    <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg bg-[#EC174F] text-[#ffffff] border-[2px] border-[#EC174F] border-solid">
                       Cotiza tu regalo
                     </button>
                   </a>
-                  <a href="#products" className="px-[2rem] w-full text-lg lg:text-2xl md:text-2xl font-bold py-[0.8rem] lg:px-0">
-                  <button className="px-[2rem] w-full text-lg lg:text-2xl md:text-2xl font-bold py-[0.8rem] lg:px-0 rounded-lg  border-[2px] border-[#EC174F] border-solid">
+                  <a href="#products" className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0">
+                  <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg  border-[2px] border-[#EC174F] border-solid">
                     Mira nuestros productos
                   </button>
                   </a>

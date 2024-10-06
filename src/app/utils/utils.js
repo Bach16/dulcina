@@ -12,3 +12,11 @@ export const obtenerFechaActual=()=> {
 
     return `${mes} ${dia}, ${año}`;
 }
+
+export const obtenerAño=()=> {
+
+    const fecha = new Date();
+    const año = fecha.getFullYear();
+
+    return `${año}`;
+}

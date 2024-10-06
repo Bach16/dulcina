@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 
@@ -10,7 +11,7 @@ const Product:FC<Props> = ({product}) => {
     <div id="product-container" className="text-[#EC174F] w-full p-3 rounded-2xl md:shadow-none">
       <div className="overflow-hidden">
         <div>
-          <img src={product?.image} alt={product?.name} id="product-mask" className=" h-[19rme] w-[19rem]"/>
+          <img src={product?.image} alt={product?.name} id="product-mask" width={19} className=" h-[19rme] w-[19rem]"/>
         </div>
       </div>
       <div className="flex flex-col ">
@@ -19,7 +20,7 @@ const Product:FC<Props> = ({product}) => {
             <p className="text-[1rem]">$ {product?.price}</p>
         </div>
         <a className="mt-[0.6rem] w-[101%] " target="_blank" rel="noopener noreferrer" href={product?.link}>
-        <button id="product-button" className="border-solid font-semibold border-[2px] border-[#EC174F] w-full rounded-2xl py-[0.5rem]">Comprar</button>
+        <button id="product-button" className="border-solid font-semibold border-[2px] bg-[#EC174F] text-[#fff] w-full rounded-2xl py-[0.5rem]">Comprar</button>
         </a>
       </div>
     </div>
