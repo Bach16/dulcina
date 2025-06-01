@@ -32,7 +32,7 @@ export default function Home() {
                   </h1>
                 </div>
                 <div className="flex justify-between flex-col gap-5 w-5/6 mt-16 md:flex-row max-w-[40rem]">
-                  <a href="https://wa.link/xyz3gb" className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0">
+                  <a href="https://wa.link/c553sx" className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0">
                     <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg bg-[#EC174F] text-[#ffffff] border-[2px] border-[#EC174F] border-solid">
                       Cotiza tu regalo
                     </button>

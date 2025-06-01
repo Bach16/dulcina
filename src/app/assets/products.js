@@ -13,55 +13,55 @@ export const data = [
         name: "Cielo azul",
         price:"28.00",
         image: productImg.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "2",
         name: "Taza de felicidad",
         price:"18.00",
         image: productImg1.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "3",
         name: "Festín frutal",
         price:"40.00",
         image: productImg2.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "4",
         name: "Arcoíris delicioso",
         price:"30.00",
         image: productImg3.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "5",
         name: "Pasión en Bloom",
         price:"28.00",
         image: productImg4.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "6",
         name: "Celebración de amor",
         price:"20.00",
         image: productImg5.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "7",
         name: "Fantasía tropical",
         price:"30.00",
         image: productImg6.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     },
     {
         id: "8",
         name: "Cofre de delicias",
         price:"35.00",
         image: productImg7.src,
-        link:"https://wa.link/xyz3gb"
+        link:"https://wa.link/c553sx"
     }
 ]
