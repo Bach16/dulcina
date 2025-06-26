@@ -1,14 +1,17 @@
 import Product from "../components/Product";
 import { Lobster } from "next/font/google";
 import { data } from "./assets/products.js";
-
+import { getProductos } from "./lib/helpers/graphql";
 const lobster = Lobster({
   subsets: ["latin"],
   display: "swap",
   weight: ["400"],
 });
 
-export default function Home() {
+export default async function Home({ searchParams }: { searchParams: Record<string, string | string[]> }) {
+  const { productos } = await getProductos(searchParams);
+  console.log(productos);
+  
   return (
     <>
       <header className=" main-bg bg-fixed flex flex-col items-center text-center text-[#EC174F]">
@@ -28,19 +31,25 @@ export default function Home() {
                     El detalle perfecto para alegrar cualquier ocasión especial
                   </h2>
                   <h1 className="text-[4rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[7rem]">
-                  Regalos a domicilio quito
+                    Regalos a domicilio quito
                   </h1>
                 </div>
                 <div className="flex justify-between flex-col gap-5 w-5/6 mt-16 md:flex-row max-w-[40rem]">
-                  <a href="https://wa.link/c553sx" className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0">
+                  <a
+                    href="https://wa.link/c553sx"
+                    className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0"
+                  >
                     <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg bg-[#EC174F] text-[#ffffff] border-[2px] border-[#EC174F] border-solid">
                       Cotiza tu regalo
                     </button>
                   </a>
-                  <a href="#products" className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0">
-                  <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg  border-[2px] border-[#EC174F] border-solid">
-                    Mira nuestros productos
-                  </button>
+                  <a
+                    href="#products"
+                    className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0"
+                  >
+                    <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg  border-[2px] border-[#EC174F] border-solid">
+                      Mira nuestros productos
+                    </button>
                   </a>
                 </div>
               </div>
@@ -50,14 +59,18 @@ export default function Home() {
         <div className="w-[100%] circle-mask pt-[7rem] flex flex-col gap-3  justify-center items-center p-3">
           <div className="text-[#EC174F] flex flex-col justify-center items-center">
             <h2 className="text-[1.2rem] text-center">
-            Crea emociones y sentimientos
+              Crea emociones y sentimientos
             </h2>
             <h1 className="text-5xl helvetica-rounded text-center mt-3 mb-10 leading-none">
               ESCOGE EL MEJOR REGALO
             </h1>
           </div>
-          <div id="products" className="w-[85%] grid grid-cols-2 gap-4 gap-y-10 sm:gap-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-            {data.map((e: any) => {
+          <div
+            id="products"
+            className="w-[85%] grid grid-cols-2 gap-4 gap-y-10 sm:gap-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4"
+          >
+            {productos.map((e: any) => {
+              console.log(productos);
               return <Product product={e} key={e.id} />;
             })}
           </div>
@@ -78,3 +91,4 @@ export default function Home() {
     </>
   );
 }
+
