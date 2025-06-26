@@ -28,11 +28,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <MicrosoftClarity />
-      <GoogleTagManager gtmId="GTM-WFZVVMVD" />
+      <GoogleTagManager gtmId="GTM-NBXZBJF2" />
       <body className={`${inter.className}`}>
         <noscript>
           <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-WFZVVMVD"
+            src="https://www.googletagmanager.com/ns.html?id=GTM-NBXZBJF2"
             height="0"
             width="0"
             className="hidden invisible"
