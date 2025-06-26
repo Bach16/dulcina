@@ -34,7 +34,7 @@ const Product:FC<Props> = ({product}) => {
           className="mt-[0.6rem] w-[101%] "
           target="_blank"
           rel="noopener noreferrer"
-          href={product?.description}
+          href={product?.description.replace(/<[^>]*>/g, "").trim()}
         >
           <button
             id="product-button"
