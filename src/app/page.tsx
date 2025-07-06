@@ -10,7 +10,6 @@ const lobster = Lobster({
 
 export default async function Home({ searchParams }: { searchParams: Record<string, string | string[]> }) {
   const { productos } = await getProductos(searchParams);
-  console.log(productos);
   
   return (
     <>
