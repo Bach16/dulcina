@@ -27,17 +27,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <MicrosoftClarity />
-      <GoogleTagManager gtmId="GTM-NBXZBJF2" />
+      {process.env.NEXT_ENV === "production" && (
+        <>
+          <MicrosoftClarity />
+          <GoogleTagManager gtmId={`${process.env.NEXT_GOOGLE_GTM}`} />
+        </>
+      )}
+
       <body className={`${inter.className}`}>
-        <noscript>
-          <iframe
-            src="https://www.googletagmanager.com/ns.html?id=GTM-NBXZBJF2"
-            height="0"
-            width="0"
-            className="hidden invisible"
-          ></iframe>
-        </noscript>
+        {process.env.NEXT_ENV === "production" && (
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${process.env.NEXT_GOOGLE_GTM}`}
+              height="0"
+              width="0"
+              className="hidden invisible"
+            ></iframe>
+          </noscript>
+        )}
+
         {children}
       </body>
     </html>

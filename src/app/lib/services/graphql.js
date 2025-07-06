@@ -1,7 +1,19 @@
 // src/app/lib/services/graphql.js
+import axios from "axios";
+
 class GraphQLService {
   constructor() {
-    this.endpoint = "https://api.dulcinachocolates.com/graphql";
+    this.endpoint = process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT || 
+                   process.env.GRAPHQL_ENDPOINT 
+
+    // Configure axios instance
+    this.client = axios.create({
+      baseURL: this.endpoint,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      timeout: 10000, // 10 seconds timeout
+    });
   }
 
   async query(query, variables = {}) {
@@ -9,35 +21,34 @@ class GraphQLService {
       console.log("GraphQL Query:", query);
       console.log("Variables:", variables);
 
-      const response = await fetch(this.endpoint, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          query,
-          variables,
-        }),
+      const response = await this.client.post("", {
+        query,
+        variables,
       });
 
-      if (!response.ok) {
-        throw new Error(
-          `HTTP Error: ${response.status} ${response.statusText}`
-        );
+      console.log("GraphQL Response:", response.data);
+
+      if (response.data.errors) {
+        throw new Error(response.data.errors[0].message);
       }
 
-      const data = await response.json();
-
-      console.log("GraphQL Response:", data);
-
-      if (data.errors) {
-        throw new Error(data.errors[0].message);
-      }
-
-      return data.data;
+      return response.data.data;
     } catch (error) {
       console.error("GraphQL Error:", error);
-      throw error;
+
+      // Handle axios-specific errors
+      if (error.response) {
+        // Server responded with error status
+        throw new Error(
+          `HTTP Error: ${error.response.status} ${error.response.statusText}`
+        );
+      } else if (error.request) {
+        // Request was made but no response received
+        throw new Error("Network Error: No response received");
+      } else {
+        // Something else happened
+        throw error;
+      }
     }
   }
 }
