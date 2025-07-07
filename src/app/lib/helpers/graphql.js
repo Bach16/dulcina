@@ -71,7 +71,7 @@ export async function getProductos(searchParams = {}) {
 
     const {
       page = "1",
-      per_page = "10",
+      per_page = "20",
       category,
       search,
       featured,

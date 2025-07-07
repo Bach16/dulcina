@@ -30,7 +30,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
                     El detalle perfecto para alegrar cualquier ocasión especial
                   </h2>
                   <h1 className="text-[4rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[7rem]">
-                    Regalos a domicilio quito
+                    Regalos a domicilio Quito
                   </h1>
                 </div>
                 <div className="flex justify-between flex-col gap-5 w-5/6 mt-16 md:flex-row max-w-[40rem]">
