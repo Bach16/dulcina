@@ -55,7 +55,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
             </div>
           </div>
         </div>
-        <div className="w-[100%] circle-mask pt-[7rem] flex flex-col gap-3  justify-center items-center p-3">
+        <div className="w-[100%] pt-[7rem] flex flex-col gap-3  justify-center items-center p-3">
           <div className="text-[#EC174F] flex flex-col justify-center items-center">
             <h2 className="text-[1.2rem] text-center">
               Crea emociones y sentimientos
