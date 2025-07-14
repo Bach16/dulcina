@@ -4,7 +4,7 @@ import { getPosts } from "./lib/helpers/blog";
 import { getProductos } from "./lib/helpers/graphql";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://yourdomain.com";
+  const baseUrl = "https://www.dulcinachocolates.com";
 
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
