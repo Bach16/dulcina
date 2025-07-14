@@ -17,6 +17,9 @@ export const metadata: Metadata = {
   icons: {
     icon: icon.src,
   },
+  alternates: {
+    canonical: "https://www.dulcinachocolates.com",
+  },
 };
 
 
