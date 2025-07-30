@@ -39,7 +39,7 @@ export default function RootLayout({
     <html lang="en">
       {process.env.NEXT_ENV === "production" && (
         <>
-          <MicrosoftClarity />
+          <MicrosoftClarity id={process.env.NEXT_CLARITY_ID} />
           <GoogleTagManager gtmId={`${process.env.NEXT_GOOGLE_GTM}`} />
         </>
       )}
