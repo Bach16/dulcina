@@ -12,8 +12,15 @@ import MicrosoftClarity from "./metrics/MicrosoftClarity";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `Dulcina - Regalos a domicilio quito ${obtenerAño()}`,
-  description: `Regalos a domicilio quito - ${obtenerFechaActual()}`,
+  title: `Dulcina - Regalos de chocolates quito ${obtenerAño()}`,
+  description: `Regalos de chocolates quito - ${obtenerFechaActual()}`,
+  keywords: [
+    "Regalos de chocolates quito",
+    "Regalos a domicilio quito",
+    "Arreglos de chocolates quito",
+    "Dulcina chocolates",
+    "Dulcina chocolates quito",
+  ],
   icons: {
     icon: icon.src,
   },

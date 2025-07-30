@@ -13,8 +13,8 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
   
   return (
     <>
-      <header className=" main-bg bg-fixed flex flex-col items-center text-center text-[#EC174F]">
-        <div className="w-[100%] bg-[#FCE8EA]/[0.7] backdrop-brightness-75">
+      <header className=" main-bg bg-fixed flex flex-col items-center text-center text-[#EC174F] ">
+        <div className="w-[100%] bg-[#FCE8EA]/[0.7] backdrop-brightness-75 pb-[80px]">
           <p className={`${lobster.className}  mt-[1rem] text-[2.5rem]`}>
             Dulcina
           </p>
@@ -25,13 +25,17 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
           <div className="w-[100%] bg-[#FCE8EA]/[0.7] backdrop-brightness-75">
             <div className="h-[85vh] flex flex-col items-center text-center text-[#EC174F] justify-center">
               <div className="flex flex-col items-center justify-between max-w-xl md:max-w-none md:gap-12 mt-[-5rem]">
-                <div className="flex flex-col gap-5">
-                  <h2 className="text-md px-4 md:text-2xl leading-tight">
-                    El detalle perfecto para alegrar cualquier ocasión especial
-                  </h2>
-                  <h1 className="text-[4rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[7rem]">
-                    Regalos a domicilio Quito
+                <div className="flex flex-col gap-5 justify-center items-center">
+                  <h1 className="text-[3rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[6rem]">
+                    Regalos de chocolates quito
                   </h1>
+                  <div className="w-[60%] mt-[8px]">
+                    <h2 className=" text-[16px] px-4 md:text-[18px] leading-tight">
+                      Descubre regalos de chocolates en quito. Entregas rápidas,
+                      arreglos personalizadas y el sabor perfecto para decir lo
+                      que sientes.
+                    </h2>
+                  </div>
                 </div>
                 <div className="flex justify-between flex-col gap-5 w-5/6 mt-16 md:flex-row max-w-[40rem]">
                   <a
@@ -57,12 +61,12 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
         </div>
         <div className="w-[100%] pt-[7rem] flex flex-col gap-3  justify-center items-center p-3">
           <div className="text-[#EC174F] flex flex-col justify-center items-center">
-            <h2 className="text-[1.2rem] text-center">
-              Crea emociones y sentimientos
+            <h3 className="text-[1.2rem] text-center">
+              Nuestros Regalos de Chocolates en Quito
+            </h3>
+            <h2 className="text-5xl helvetica-rounded text-center mt-3 mb-10 leading-none">
+              Elige el detalle perfecto
             </h2>
-            <h1 className="text-5xl helvetica-rounded text-center mt-3 mb-10 leading-none">
-              ESCOGE EL MEJOR REGALO
-            </h1>
           </div>
           <div
             id="products"
