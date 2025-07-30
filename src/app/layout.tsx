@@ -13,7 +13,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: `Dulcina - Arreglos de chocolates quito ${obtenerAño()}`,
-  description: `Arreglos de chocolates quito - ${obtenerFechaActual()}`,
+  description: `Arreglos de chocolates en Quito para toda ocasión. Sorprende con regalos únicos y artesanales, atención personalizada y entrega confiable. ¡Cotiza tu regalo!`,
   keywords: [
     "Arreglos de chocolates quito",
     "Regalos de chocolates quito",
