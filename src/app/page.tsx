@@ -27,13 +27,13 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
               <div className="flex flex-col items-center justify-between max-w-xl md:max-w-none md:gap-12 mt-[-5rem]">
                 <div className="flex flex-col gap-5 justify-center items-center">
                   <h1 className="text-[3rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[6rem]">
-                    Regalos de chocolates quito
+                    Arreglos de chocolates quito
                   </h1>
                   <div className="w-[60%] mt-[8px]">
                     <h2 className=" text-[16px] px-4 md:text-[18px] leading-tight">
-                      Descubre regalos de chocolates en quito. Entregas rápidas,
-                      arreglos personalizadas y el sabor perfecto para decir lo
-                      que sientes.
+                      Descubre Arreglos de chocolates en quito. Entregas
+                      rápidas, arreglos personalizadas y el sabor perfecto para
+                      decir lo que sientes.
                     </h2>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
         <div className="w-[100%] pt-[7rem] flex flex-col gap-3  justify-center items-center p-3">
           <div className="text-[#EC174F] flex flex-col justify-center items-center">
             <h3 className="text-[1.2rem] text-center">
-              Nuestros Regalos de Chocolates en Quito
+              Nuestros Arreglos de Chocolates en Quito
             </h3>
             <h2 className="text-5xl helvetica-rounded text-center mt-3 mb-10 leading-none">
               Elige el detalle perfecto
