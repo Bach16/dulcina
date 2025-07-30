@@ -12,10 +12,10 @@ import MicrosoftClarity from "./metrics/MicrosoftClarity";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: `Dulcina - Arreglos de chocolates quito ${obtenerAño()}`,
+  title: `Dulcina - Arreglos de chocolates en quito ${obtenerAño()}`,
   description: `Arreglos de chocolates en Quito para toda ocasión. Sorprende con regalos únicos y artesanales, atención personalizada y entrega confiable. ¡Cotiza tu regalo!`,
   keywords: [
-    "Arreglos de chocolates quito",
+    "Arreglos de chocolates en quito",
     "Regalos de chocolates quito",
     "Regalos a domicilio quito",
     "Dulcina chocolates",

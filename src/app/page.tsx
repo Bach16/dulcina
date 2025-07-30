@@ -13,7 +13,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
   
   return (
     <>
-      <header className=" main-bg bg-fixed flex flex-col items-center text-center text-[#EC174F] ">
+      <header className=" main-bg bg-fixed flex flex-col items-center text-center text-[#d21144] ">
         <div className="w-[100%] bg-[#FCE8EA]/[0.7] backdrop-brightness-75 pb-[80px]">
           <p className={`${lobster.className}  mt-[1rem] text-[2.5rem]`}>
             Dulcina
@@ -23,11 +23,11 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
       <main>
         <div className="main-bg bg-fixed flex w-[100%] h-screen">
           <div className="w-[100%] bg-[#FCE8EA]/[0.7] backdrop-brightness-75">
-            <div className="h-[85vh] flex flex-col items-center text-center text-[#EC174F] justify-center">
+            <div className="h-[85vh] flex flex-col items-center text-center text-[#d21144] justify-center">
               <div className="flex flex-col items-center justify-between max-w-xl md:max-w-none md:gap-12 mt-[-5rem]">
                 <div className="flex flex-col gap-5 justify-center items-center">
-                  <h1 className="text-[3rem] helvetica-rounded md:text-[6rem] leading-none lg:text-[6rem]">
-                    Arreglos de chocolates quito
+                  <h1 className="text-[3rem] helvetica-rounded md:text-[5rem] leading-none lg:text-[5rem]">
+                    Arreglos de chocolates en quito
                   </h1>
                   <div className="w-[60%] mt-[8px]">
                     <h2 className=" text-[16px] px-4 md:text-[18px] leading-tight">
@@ -42,7 +42,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
                     href="https://wa.link/c553sx"
                     className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0"
                   >
-                    <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg bg-[#EC174F] text-[#ffffff] border-[2px] border-[#EC174F] border-solid">
+                    <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg bg-[#d21144] text-[#ffffff] border-[2px] border-[#d21144] border-solid">
                       Cotiza tu regalo
                     </button>
                   </a>
@@ -50,7 +50,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
                     href="#products"
                     className="px-[2rem] w-full text-[16px] font-bold py-[0.8rem] lg:px-0"
                   >
-                    <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg  border-[2px] border-[#EC174F] border-solid">
+                    <button className="px-[2rem] w-full font-bold py-[0.8rem] lg:px-0 rounded-lg  border-[2px] border-[#d21144] border-solid">
                       Mira nuestros productos
                     </button>
                   </a>
@@ -60,7 +60,7 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
           </div>
         </div>
         <div className="w-[100%] pt-[7rem] flex flex-col gap-3  justify-center items-center p-3">
-          <div className="text-[#EC174F] flex flex-col justify-center items-center">
+          <div className="text-[#d21144] flex flex-col justify-center items-center">
             <h3 className="text-[1.2rem] text-center">
               Nuestros Arreglos de Chocolates en Quito
             </h3>

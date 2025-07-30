@@ -10,7 +10,7 @@ const Product:FC<Props> = ({product}) => {
   return (
     <div
       id="product-container"
-      className="text-[#EC174F] w-full p-3 rounded-2xl md:shadow-none"
+      className="text-[#d21144] w-full p-3 rounded-2xl md:shadow-none"
     >
       <div className="overflow-hidden">
         <div>
@@ -38,7 +38,7 @@ const Product:FC<Props> = ({product}) => {
         >
           <button
             id="product-button"
-            className="border-solid font-semibold border-[2px] bg-[#EC174F] text-[#fff] w-full rounded-2xl py-[0.5rem]"
+            className="border-solid font-semibold border-[2px] bg-[#d21144] text-[#fff] w-full rounded-2xl py-[0.5rem]"
           >
             Comprar
           </button>
