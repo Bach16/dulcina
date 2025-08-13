@@ -9,7 +9,7 @@ interface Props {
 const Product: FC<Props> = ({ product }) => {
   // Función para generar el enlace de WhatsApp
   const generateWhatsAppLink = (productName: string) => {
-    const phoneNumber = "593999999999"; // Reemplaza con tu número de WhatsApp (incluye código de país sin +)
+    const phoneNumber = "593987077113"
     const message = `Hola, me interesa obtener más información sobre ${productName}`;
     const encodedMessage = encodeURIComponent(message);
     return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
