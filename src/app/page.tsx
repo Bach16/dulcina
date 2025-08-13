@@ -1,16 +1,95 @@
+"use client";
+
 import Product from "../components/Product";
 import { Lobster } from "next/font/google";
 import { data } from "./assets/products.js";
 import { getProductos } from "./lib/helpers/graphql";
+import { useState, useEffect, useCallback } from "react";
+
 const lobster = Lobster({
   subsets: ["latin"],
   display: "swap",
   weight: ["400"],
 });
 
-export default async function Home({ searchParams }: { searchParams: Record<string, string | string[]> }) {
-  const { productos } = await getProductos(searchParams);
-  
+interface HomeProps {
+  searchParams: Record<string, string | string[]>;
+}
+
+export default function Home({ searchParams }: HomeProps) {
+  const [productos, setProductos] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [loadingMore, setLoadingMore] = useState(false);
+  const [hasNextPage, setHasNextPage] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+
+  // Función para cargar productos
+  const loadProductos = useCallback(async (page: number = 1, append: boolean = false) => {
+    try {
+      if (append) {
+        setLoadingMore(true);
+      } else {
+        setLoading(true);
+      }
+
+      const params = {
+        ...searchParams,
+        page: page.toString(),
+        per_page: "20"
+      };
+
+      const result = await getProductos(params);
+      
+      if (append) {
+        setProductos(prev => [...prev, ...result.productos]);
+      } else {
+        setProductos(result.productos);
+      }
+      
+      setHasNextPage(result.pageInfo?.hasNextPage || false);
+      setCurrentPage(page);
+      
+    } catch (error) {
+      console.error("Error loading productos:", error);
+    } finally {
+      setLoading(false);
+      setLoadingMore(false);
+    }
+  }, [searchParams]);
+
+  // Cargar productos iniciales
+  useEffect(() => {
+    loadProductos(1, false);
+  }, [loadProductos]);
+
+  // Función para detectar scroll
+  const handleScroll = useCallback(() => {
+    if (loadingMore || !hasNextPage) return;
+
+    const scrollTop = document.documentElement.scrollTop;
+    const scrollHeight = document.documentElement.scrollHeight;
+    const clientHeight = document.documentElement.clientHeight;
+
+    // Si estamos cerca del final (200px antes del final)
+    if (scrollTop + clientHeight >= scrollHeight - 200) {
+      loadProductos(currentPage + 1, true);
+    }
+  }, [loadingMore, hasNextPage, currentPage, loadProductos]);
+
+  // Agregar/remover listener de scroll
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [handleScroll]);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <div className="text-[#d21144] text-xl">Cargando productos...</div>
+      </div>
+    );
+  }
+
   return (
     <>
       <header className=" main-bg bg-fixed flex flex-col items-center text-center text-[#d21144] ">
@@ -73,25 +152,28 @@ export default async function Home({ searchParams }: { searchParams: Record<stri
             className="w-[85%] grid grid-cols-2 gap-4 gap-y-10 sm:gap-10 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4"
           >
             {productos.map((e: any) => {
-              console.log(productos);
               return <Product product={e} key={e.id} />;
             })}
           </div>
+          
+          {/* Indicador de carga */}
+          {loadingMore && (
+            <div className="flex justify-center items-center py-8">
+              <div className="text-[#d21144] text-lg">Cargando más productos...</div>
+            </div>
+          )}
+          
+          {/* Mensaje cuando no hay más productos */}
+          {!hasNextPage && productos.length > 0 && (
+            <div className="flex justify-center items-center py-8">
+              <div className="text-[#d21144] text-lg">Has visto todos nuestros productos</div>
+            </div>
+          )}
         </div>
-        {/* <div className="h-screen">
-        <div className="flex items-center justify-center">
-          <div className="arc-mask w-[100%] h-[50rem]"></div>
-        </div>
-      </div> */}
-        {/* <div className="h-screen">
-        <div className="flex items-center justify-center">
-          <div className="footer-mask w-[100%] h-[50rem]"></div>
-          </div>
-      </div> */}
+        
         <div className="h-[10rem]"></div>
       </main>
       <footer></footer>
     </>
   );
 }
-

@@ -79,6 +79,10 @@ export async function getProductos(searchParams = {}) {
     } = searchParams;
 
     const first = parseInt(per_page);
+    const currentPage = parseInt(page);
+
+    // Calcular el offset para la paginación
+    const offset = (currentPage - 1) * first;
 
     // Construir filtros
     const where = {
@@ -89,12 +93,20 @@ export async function getProductos(searchParams = {}) {
     };
 
     let query = GET_PRODUCTOS;
-    let variables = { first, where };
+    let variables = { 
+      first, 
+      where,
+      ...(offset > 0 && { offset })
+    };
 
     // Si hay búsqueda, usar query diferente
     if (search) {
       query = SEARCH_PRODUCTOS;
-      variables = { search, first };
+      variables = { 
+        search, 
+        first,
+        ...(offset > 0 && { offset })
+      };
     }
 
     console.log("Executing GraphQL query with variables:", variables);
@@ -105,8 +117,16 @@ export async function getProductos(searchParams = {}) {
       console.log("No products data received:", data);
       return {
         productos: [],
-        pageInfo: {},
-        pagination: { currentPage: 1, perPage: 10 },
+        pageInfo: {
+          hasNextPage: false,
+          hasPreviousPage: false,
+        },
+        pagination: { 
+          currentPage: currentPage, 
+          perPage: first,
+          hasNext: false,
+          hasPrevious: false,
+        },
       };
     }
 
@@ -116,22 +136,41 @@ export async function getProductos(searchParams = {}) {
 
     console.log("Processed productos:", productos);
 
+    // Determinar si hay más páginas
+    const totalProducts = data.products.pageInfo?.total || productos.length;
+    const hasNextPage = (currentPage * first) < totalProducts || data.products.pageInfo?.hasNextPage || false;
+    const hasPreviousPage = currentPage > 1 || data.products.pageInfo?.hasPreviousPage || false;
+
     return {
       productos,
-      pageInfo: data.products.pageInfo,
+      pageInfo: {
+        hasNextPage,
+        hasPreviousPage,
+        total: totalProducts,
+        ...data.products.pageInfo
+      },
       pagination: {
-        currentPage: parseInt(page),
+        currentPage: currentPage,
         perPage: first,
-        hasNext: data.products.pageInfo.hasNextPage,
-        hasPrevious: data.products.pageInfo.hasPreviousPage,
+        hasNext: hasNextPage,
+        hasPrevious: hasPreviousPage,
+        total: totalProducts,
       },
     };
   } catch (error) {
     console.error("Error getting productos:", error);
     return {
       productos: [],
-      pageInfo: {},
-      pagination: { currentPage: 1, perPage: 10 },
+      pageInfo: {
+        hasNextPage: false,
+        hasPreviousPage: false,
+      },
+      pagination: { 
+        currentPage: 1, 
+        perPage: 10,
+        hasNext: false,
+        hasPrevious: false,
+      },
     };
   }
 }
