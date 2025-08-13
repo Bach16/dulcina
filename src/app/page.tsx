@@ -123,7 +123,7 @@ export default function Home({ searchParams }: HomeProps) {
               <div className="flex flex-col items-center justify-between max-w-xl md:max-w-none md:gap-12 mt-[-5rem]">
                 <div className="flex flex-col gap-5 justify-center items-center">
                   <h1 className="text-[3rem] helvetica-rounded md:text-[5rem] leading-none lg:text-[5rem]">
-                    Arreglos de chocolates en quito
+                    Arreglos de chocolates en Quito
                   </h1>
                   <div className="w-[60%] mt-[8px]">
                     <h2 className=" text-[16px] px-4 md:text-[18px] leading-tight">
