@@ -6,11 +6,19 @@ interface Props {
   product: any;
 }
 
-const Product:FC<Props> = ({product}) => {
+const Product: FC<Props> = ({ product }) => {
+  // Función para generar el enlace de WhatsApp
+  const generateWhatsAppLink = (productName: string) => {
+    const phoneNumber = "593999999999"; // Reemplaza con tu número de WhatsApp (incluye código de país sin +)
+    const message = `Hola, me interesa obtener más información sobre ${productName}`;
+    const encodedMessage = encodeURIComponent(message);
+    return `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+  };
+
   return (
     <div
       id="product-container"
-      className="text-[#d21144] w-full p-3 rounded-2xl md:shadow-none"
+      className="text-[#EC174F] w-full p-3 rounded-2xl md:shadow-none"
     >
       <div className="overflow-hidden">
         <div>
@@ -34,11 +42,11 @@ const Product:FC<Props> = ({product}) => {
           className="mt-[0.6rem] w-[101%] "
           target="_blank"
           rel="noopener noreferrer"
-          href={product?.description.replace(/<[^>]*>/g, "").trim()}
+          href={generateWhatsAppLink(product?.name)}
         >
           <button
             id="product-button"
-            className="border-solid font-semibold border-[2px] bg-[#d21144] text-[#fff] w-full rounded-2xl py-[0.5rem]"
+            className="border-solid font-semibold border-[2px] bg-[#EC174F] text-[#fff] w-full rounded-2xl py-[0.5rem]"
           >
             Comprar
           </button>
