@@ -76,13 +76,13 @@ export async function getProductos(searchParams = {}) {
       search,
       featured,
       on_sale,
+      after, // Cursor para paginación
     } = searchParams;
 
     const first = parseInt(per_page);
     const currentPage = parseInt(page);
 
-    // Calcular el offset para la paginación
-    const offset = (currentPage - 1) * first;
+    console.log(`Loading page ${currentPage}, after: ${after}, first: ${first}`);
 
     // Construir filtros
     const where = {
@@ -95,23 +95,36 @@ export async function getProductos(searchParams = {}) {
     let query = GET_PRODUCTOS;
     let variables = { 
       first, 
-      where,
-      ...(offset > 0 && { offset })
+      where
     };
+
+    // Agregar cursor si existe
+    if (after) {
+      variables.after = after;
+      console.log("Adding after cursor to variables:", after);
+    }
 
     // Si hay búsqueda, usar query diferente
     if (search) {
       query = SEARCH_PRODUCTOS;
       variables = { 
         search, 
-        first,
-        ...(offset > 0 && { offset })
+        first
       };
+      
+      // Agregar cursor para búsqueda también
+      if (after) {
+        variables.after = after;
+        console.log("Adding after cursor to search variables:", after);
+      }
     }
 
     console.log("Executing GraphQL query with variables:", variables);
 
     const data = await graphqlService.query(query, variables);
+
+    console.log("GraphQL response data:", data);
+    console.log("Response pageInfo:", data?.products?.pageInfo);
 
     if (!data || !data.products || !data.products.edges) {
       console.log("No products data received:", data);
@@ -134,27 +147,30 @@ export async function getProductos(searchParams = {}) {
       normalizeProduct(edge.node)
     );
 
-    console.log("Processed productos:", productos);
+    console.log(`Processed ${productos.length} productos for page ${currentPage}`);
+    console.log("First product:", productos[0]?.name);
+    console.log("Last product:", productos[productos.length - 1]?.name);
 
-    // Determinar si hay más páginas
-    const totalProducts = data.products.pageInfo?.total || productos.length;
-    const hasNextPage = (currentPage * first) < totalProducts || data.products.pageInfo?.hasNextPage || false;
-    const hasPreviousPage = currentPage > 1 || data.products.pageInfo?.hasPreviousPage || false;
+    // Determinar si hay más páginas basado en la respuesta
+    const pageInfo = data.products.pageInfo || {};
+    const hasNextPage = pageInfo.hasNextPage || productos.length === first;
+    const hasPreviousPage = currentPage > 1 || pageInfo.hasPreviousPage || false;
 
     return {
       productos,
       pageInfo: {
         hasNextPage,
         hasPreviousPage,
-        total: totalProducts,
-        ...data.products.pageInfo
+        endCursor: pageInfo.endCursor, // Necesario para la siguiente página
+        startCursor: pageInfo.startCursor,
+        ...pageInfo
       },
       pagination: {
         currentPage: currentPage,
         perPage: first,
         hasNext: hasNextPage,
         hasPrevious: hasPreviousPage,
-        total: totalProducts,
+        endCursor: pageInfo.endCursor, // Para usar en la siguiente request
       },
     };
   } catch (error) {

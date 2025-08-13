@@ -22,10 +22,13 @@ export default function Home({ searchParams }: HomeProps) {
   const [loadingMore, setLoadingMore] = useState(false);
   const [hasNextPage, setHasNextPage] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [endCursor, setEndCursor] = useState<string | null>(null); // Para manejar cursors
 
   // Función para cargar productos
-  const loadProductos = useCallback(async (page: number = 1, append: boolean = false) => {
+  const loadProductos = useCallback(async (page: number = 1, append: boolean = false, cursor?: string) => {
     try {
+      console.log(`Loading productos for page: ${page}, append: ${append}, cursor: ${cursor}`);
+      
       if (append) {
         setLoadingMore(true);
       } else {
@@ -35,18 +38,30 @@ export default function Home({ searchParams }: HomeProps) {
       const params = {
         ...searchParams,
         page: page.toString(),
-        per_page: "20"
+        per_page: "20",
+        // Para páginas siguientes, usar el cursor pasado como parámetro
+        ...(cursor && { after: cursor })
       };
+
+      console.log("Calling getProductos with params:", params);
 
       const result = await getProductos(params);
       
+      console.log(`Received ${result.productos.length} productos`);
+      console.log("HasNextPage:", result.pageInfo?.hasNextPage);
+      console.log("EndCursor:", result.pageInfo?.endCursor);
+      
       if (append) {
-        setProductos(prev => [...prev, ...result.productos]);
+        setProductos(prev => {
+          console.log(`Adding ${result.productos.length} to existing ${prev.length} productos`);
+          return [...prev, ...result.productos];
+        });
       } else {
         setProductos(result.productos);
       }
       
       setHasNextPage(result.pageInfo?.hasNextPage || false);
+      setEndCursor(result.pageInfo?.endCursor || null); // Guardar cursor para siguiente página
       setCurrentPage(page);
       
     } catch (error) {
@@ -55,12 +70,13 @@ export default function Home({ searchParams }: HomeProps) {
       setLoading(false);
       setLoadingMore(false);
     }
-  }, [searchParams]);
+  }, [searchParams]); // Solo searchParams como dependencia
 
   // Cargar productos iniciales
   useEffect(() => {
+    setEndCursor(null); // Resetear cursor para empezar desde el principio
     loadProductos(1, false);
-  }, [loadProductos]);
+  }, [searchParams]); // Solo depender de searchParams, no de loadProductos para evitar loops
 
   // Función para detectar scroll
   const handleScroll = useCallback(() => {
@@ -72,9 +88,10 @@ export default function Home({ searchParams }: HomeProps) {
 
     // Si estamos cerca del final (200px antes del final)
     if (scrollTop + clientHeight >= scrollHeight - 200) {
-      loadProductos(currentPage + 1, true);
+      console.log("Scroll detected, loading next page with cursor:", endCursor);
+      loadProductos(currentPage + 1, true, endCursor ?? undefined); // Pasar el cursor actual
     }
-  }, [loadingMore, hasNextPage, currentPage, loadProductos]);
+  }, [loadingMore, hasNextPage, currentPage, endCursor, loadProductos]);
 
   // Agregar/remover listener de scroll
   useEffect(() => {
@@ -163,12 +180,6 @@ export default function Home({ searchParams }: HomeProps) {
             </div>
           )}
           
-          {/* Mensaje cuando no hay más productos */}
-          {!hasNextPage && productos.length > 0 && (
-            <div className="flex justify-center items-center py-8">
-              <div className="text-[#d21144] text-lg">Has visto todos nuestros productos</div>
-            </div>
-          )}
         </div>
         
         <div className="h-[10rem]"></div>
